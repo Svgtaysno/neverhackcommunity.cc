@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="LentiWin">
+    <meta name="description" content="Сайт читов для CS">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEVERHACK - Читы для CS2 и CS:GO</title>
+    <link rel="icon" type="image/jpg" sizes="32x32" href="images/logo.jpg">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <nav class="links">
+        <div class="logo-container">
+            <img class="site-icon" src="images/logo.jpg" alt="Логотип"/>
+            <div class="site-title">NEVERHACK</div>
+        </div>
+        <ul class="misc">
+            <li><a href="#" class="link" data-i18n="general">Главная</a></li>
+            <li><a href="misc/forum.html" class="link" data-i18n="forum">Форум</a></li>
+            <li><a href="misc/market.html" class="link" data-i18n="market">Маркет</a></li>
+            <li><a href="misc/contacts.html" class="link" data-i18n="help">Помощь</a></li>
+            <li><a href="misc/rules.html" class="link" data-i18n="rules">Правила</a></li>
+        </ul>
+        <div class="user-controls">
+            <div class="language-switcher">
+                <select id="language-select">
+                    <option value="ru">RU</option>
+                    <option value="en">EN</option>
+                </select>
+            </div>
+            <div class="auth-buttons">
+                <button class="registerbutton" data-i18n="registerBtn">Регистрация</button>
+                <button class="loginbutton" data-i18n="loginBtn">Войти</button>
+            </div>
+            <div class="profile-container" id="profile-container" style="display:none;">
+                <img src="images/default.png" alt="Профиль" class="profile-pic" id="profile-pic"/>
+                <div class="profile-dropdown" id="profile-dropdown">
+                    <a href="#" class="dropdown-item" data-i18n="profile">Профиль</a>
+                    <a href="#" class="dropdown-item" data-i18n="subscriptions">Подписки</a>
+                    <a href="#" class="dropdown-item" data-i18n="settings">Настройки</a>
+                    <a href="#" class="dropdown-item" data-i18n="logout">Выйти</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="unique-visitors">
+        <i class="fas fa-users"></i>
+        <span id="unique-visitors-count">0</span>
+        <span data-i18n="uniqueVisitors">Уникальных посетителей</span>
+    </div>
+
+    <div class="supported-loader">
+        <p class="supported-text" data-i18n="supported">SUPPORTED</p>
+        <div class="platforms">
+            <img src="images/windows.svg" alt="Windows" class="platform-icon"/>
+        </div>
+    </div>
+
+    <div class="cards-cheats">
+        <figure class="cardcheat">
+            <img src="images/nl.jpg" alt="" />
+            <figcaption>NEVERLOSE (CS2)</figcaption>
+        </figure>
+        <figure class="cardcheat">
+            <img src="images/ft.jpg" alt="" />
+            <figcaption>FATALITY (CS2)</figcaption>
+        </figure>
+        <figure class="cardcheat">
+            <img src="images/gs.jpg" alt="" />
+            <figcaption>GAMESENSE (CS2)</figcaption>
+        </figure>
+        <figure class="cardcheat">
+            <img src="images/gs.jpg" alt="" />
+            <figcaption>GAMESENSE (CSGO)</figcaption>
+        </figure>
+        <figure class="cardcheat">
+            <img src="images/nl.jpg" alt="" />
+            <figcaption>NEVERLOSE (CSGO)</figcaption>
+        </figure>
+        <figure class="cardcheat">
+            <img src="images/nh.jpg" alt="" />
+            <figcaption>NH LITE (CS2)</figcaption>
+        </figure>
+        <figure class="cardcheat">
+            <img src="images/nh.jpg" alt="" />
+            <figcaption>NH LITE (CSGO)</figcaption>
+        </figure>
+        <figure class="cardcheat">
+            <img src="images/nh.jpg" alt="" />
+            <figcaption>NH PREMIUM (CS2)</figcaption>
+        </figure>
+        <figure class="cardcheat">
+            <img src="images/nh.jpg" alt="" />
+            <figcaption>NH PREMIUM (CSGO)</figcaption>
+        </figure>
+        <figure class="cardcheat">
+            <img src="images/nh.jpg" alt="" />
+            <figcaption>NH FACEIT (CS2)</figcaption>
+        </figure>
+    </div>
+
+    <dialog id="subscriptions-dialog">
+        <h2 data-i18n="subscriptions">Подписки</h2>
+        <div class="subscriptions-list">
+            <div class="subscription-item">
+                <h3>NEVERLOSE (CS2)</h3>
+                <p>Истекает: 2024-12-31</p>
+                <button class="renew-btn" data-i18n="renew">Продлить</button>
+            </div>
+        </div>
+        <button id="close-subs" data-i18n="close">Закрыть</button>
+    </dialog>
+
+    <div class="savesettings">
+        <div class="savesettings-content">
+            <i class="fas fa-solid fa-check check"></i>
+            <div class="message">
+                <span class="text text-1" data-i18n="saveSuccess">Успешно</span>
+                <span class="text text-2" data-i18n="saveMessage">Изменения сохранены</span>
+            </div>
+        </div>
+        <i class="fa-solid fa-xmark close"></i>
+        <div class="progress"></div>
+    </div>
+
+    <dialog id="dialog-reg">
+        <h2 data-i18n="regTitle">РЕГИСТРАЦИЯ</h2>
+        <form id="register-form">
+            <div class="form-group">
+                <label for="reg-username" data-i18n="username">Имя пользователя:</label>
+                <input type="text" id="reg-username" required>
+            </div>
+            <div class="form-group">
+                <label for="reg-password" data-i18n="password">Пароль:</label>
+                <input type="password" id="reg-password" required>
+            </div>
+            <div class="form-group">
+                <label for="reg-email" data-i18n="email">Email:</label>
+                <input type="email" id="reg-email" required>
+            </div>
+            <button type="submit" data-i18n="registerBtn">Регистрация</button>
+        </form>
+        <button id="close-reg" data-i18n="close">Закрыть</button>
+    </dialog>
+
+    <dialog id="dialog-login">
+        <h2 data-i18n="loginTitle">ВХОД</h2>
+        <form id="login-form">
+            <div class="form-group">
+                <label for="login-username" data-i18n="username">Имя пользователя:</label>
+                <input type="text" id="login-username" required>
+            </div>
+            <div class="form-group">
+                <label for="login-password" data-i18n="password">Пароль:</label>
+                <input type="password" id="login-password" required>
+            </div>
+            <button type="submit" data-i18n="loginBtn">Войти</button>
+        </form>
+        <button id="close-login" data-i18n="close">Закрыть</button>
+    </dialog>
+
+    <dialog id="profile-settings">
+        <h2 data-i18n="settings">Настройки</h2>
+        <form class="profile-form">
+            <div class="profile-preview">
+                <img src="images/default.png" alt="Аватар" class="profile-preview-img" id="profile-preview">
+                <button type="button" class="upload-btn">
+                    <span data-i18n="changePhoto">Сменить фото</span>
+                    <input type="file" id="profile-upload" accept="image/*">
+                </button>
+            </div>
+            <div class="form-group">
+                <label for="profile-username" data-i18n="username">Имя пользователя:</label>
+                <input type="text" id="profile-username">
+            </div>
+            <div class="form-group">
+                <label for="profile-email" data-i18n="email">Email:</label>
+                <input type="email" id="profile-email">
+            </div>
+            <div class="form-group">
+                <label for="profile-password" data-i18n="password">Пароль:</label>
+                <input type="password" id="profile-password" placeholder="••••••••">
+            </div>
+            <button type="submit" data-i18n="saveChanges">Сохранить</button>
+        </form>
+        <button id="close-profile" data-i18n="close">Закрыть</button>
+    </dialog>
+
+    <script src="js/index.js"></script>
+    <script src="keyauth.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+</body>
+</html>
